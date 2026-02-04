@@ -1,0 +1,195 @@
+/* 기본 초기화 및 폰트 적용 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+body {
+  /* Inter를 먼저 써서 영문을 처리하고, 한글은 Noto Sans KR이 처리하게 합니다 */
+  font-family: "Inter", "Noto Sans KR", sans-serif;
+  max-width: 1440px;
+  line-height: 1.3;
+  letter-spacing: -0.05rem;
+  color: #000;
+  background-color: #000;
+}
+
+.vision * {
+  outline: 1px dashed rgba(30, 144, 255, 0.5); /* 하위 요소는 파란 점선 */
+}
+
+/* 1. Sticky Header (Overlay) */
+.sticky-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  padding: 16px 20px;
+  z-index: 100;
+}
+
+/* 로고 영역 컨테이너 */
+.logo {
+  display: flex; /* 이미지를 수직 중앙 정렬하기 위해 flex 사용 */
+  align-items: center;
+  height: 100%; /* 부모(헤더) 높이를 상속 */
+  text-decoration: none; /* a태그 밑줄 제거 */
+}
+
+/* 실제 로고 이미지 스타일 */
+.logo img {
+  height: 20px; /* 요청하신 대로 세로 30px 고정 */
+  width: auto; /* 비율 유지를 위해 가로는 자동 조절 */
+  display: block; /* 이미지 하단 미세한 공백 제거 */
+}
+
+/* 2. Main Grid Layout */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 정확히 2열 */
+  gap: 8px; /* 아이템 간 간격 */
+  padding: 50px 20px 20px; /* Header 높이만큼 상단 패딩 확보 */
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* 개별 그리드 아이템 (2:3 비율) */
+.grid-item {
+  position: relative;
+  aspect-ratio: 2 / 3; /* 핵심: 가로 2 : 세로 3 비율 유지 */
+  background: white;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+  /* 내부 정렬을 위한 Flex */
+  display: flex;
+  flex-direction: column;
+}
+
+.image-wrapper {
+  flex: 3; /* 이미지 영역 비율 */
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 비율에 맞춰 꽉 채우기 */
+  transition: transform 0.3s;
+}
+.image-wrapper img:hover {
+  transform: scale(1.005);
+}
+
+.text-content {
+  flex: 1; /* 텍스트 영역 비율 */
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.text-content-top {
+    flex: 1; /* 텍스트 영역 비율 */
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+/* 3. Footer Styling */
+.footer-area {
+  padding-top: 20px;
+  border-top: 2px solid #ddd;
+  margin-top: 40px;
+  background: #333;
+  color: white;
+}
+.footer-item {
+  padding: 20px;
+}
+
+/* --- Dialog (Popup) 수정된 최종 코드 --- */
+dialog {
+  /* 1. 중앙 정렬 핵심 코드 */
+  position: fixed;
+  inset: 0; /* top, right, bottom, left 모두 0으로 설정 */
+  margin: auto; /* 상하좌우 여백을 자동으로 계산해 중앙 배치 */
+  z-index: 1000; /* 다른 요소보다 확실히 위에 오도록 */
+
+  /* 2. 스타일 및 크기 설정 */
+  border: none;
+  background: transparent; /* 배경 투명 */
+  padding: 0;
+  width: fit-content; /* 콘텐츠(이미지) 크기에 딱 맞게 */
+  height: fit-content; /* 콘텐츠 크기에 딱 맞게 */
+  max-width: 90vw; /* 화면 꽉 차지 않게 여백 둠 */
+  max-height: 90vh;
+
+  overflow: visible; /* 닫기 버튼이 밖으로 나가도 잘리지 않게 함 */
+}
+
+/* 팝업 뒷배경 */
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(3px);
+}
+
+/* 내용물 컨테이너 */
+.dialog-content {
+  position: relative;
+  display: flex; /* 이미지를 감싸는 방식을 flex로 변경하여 빈틈 제거 */
+  justify-content: center;
+  align-items: center;
+}
+
+/* 이미지 스타일 */
+.dialog-content img {
+  display: block;
+  max-width: 90vw; /* dialog의 max값과 동일하게 맞춤 */
+  max-height: 90vh; /* dialog의 max값과 동일하게 맞춤 */
+  width: auto; /* 비율 유지 */
+  height: auto; /* 비율 유지 */
+  object-fit: contain;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+/* 닫기 버튼 */
+#closeBtn {
+  position: absolute;
+  top: -40px; /* 이미지 위쪽 바깥으로 */
+  right: 0; /* 이미지 오른쪽 라인에 맞춤 */
+  background: transparent;
+  color: white;
+  border: none;
+  font-size: 30px;
+  cursor: pointer;
+  z-index: 1001;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.8); /* 흰색 아이콘이 배경과 겹칠 때 잘 보이게 그림자 추가 */
+}
+
+/* --- 반응형 미디어 쿼리 (CSS 파일 맨 아래 추가) --- */
+@media (max-width: 768px) {
+  /* 1. 메인 및 푸터 그리드를 1열로 변경 */
+  .grid-container {
+    grid-template-columns: 1fr; /* repeat(2, 1fr)에서 1fr로 변경 */
+  }
+
+  /* 2. 모바일에서 패딩 및 간격 최적화 (선택 사항) */
+  .grid-container {
+    padding-top: 70px; /* 헤더 높이 고려해 조금 더 여유 있게 */
+    gap: 30px; /* 세로로 쌓일 때 간격을 좀 더 넓게 */
+  }
+
+  /* 3. 모바일에서 헤더 높이 조정 (선택 사항) */
+  .sticky-header {
+    height: 36px;
+    padding: 0 15px;
+  }
+}

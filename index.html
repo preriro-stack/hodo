@@ -1,200 +1,88 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Landing Page - Vanilla</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Landing Page - Vanilla</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;700&display=swap"
-    rel="stylesheet" />
-  <link rel="stylesheet" href="css/global.css" />
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="css/system.css" />
-</head>
+  <body>
+    <header class="sticky-header">
+      <a href="#" class="logo">
+        <img src="/LOGO_upper_white.svg" alt="메인 로고" />
+      </a>
+    </header>
 
-<body>
-  <header>
-    <div class="header con vision">
-      <div class="vision logo"></div>
-    </div>
-  </header>
-
-  <main>
-    <!-- brand section -->
-    <div class="p-c-c-60">
-      <div class="flex row wrap gap-12">
-        <div class="col vision">
-          <div class="font p-b-1rem">
-            <p>eyebrow, this is sub title</p>
-          </div>
-          <div class="font">
-            <p class="xxl b">This is main marketing sentence</p>
-          </div>
+    <main class="grid-container">
+      <article class="grid-item">
+        <div class="text-content-top">
+          <h3>Title 1</h3>
+          <p>Description text goes here.</p>
         </div>
-      </div>
-    </div>
+      </article>
 
-    <!-- brand img holder -->
-    <div class="p-c-c-60">
-      <div class="image-container vision">
-        <img src="/assets/content/set/white_a/set_white_a_7.webp" alt="Description of image" />
-      </div>
-    </div>
-
-    <!-- brand img holder -->
-    <div class="p-c-c-60 row gap-8 vision">
-      <div class="image-container vision">
-        <img src="/assets/content/set/white_a/set_white_a_8.webp" alt="Description of image" />
-      </div>
-      <div class="image-container vision">
-        <img src="/assets/content/set/white_a/set_white_a_9.webp" alt="Description of image" />
-      </div>
-      <div class="image-container vision">
-        <img src="/assets/content/set/white_a/set_white_a_10.webp" alt="Description of image" />
-      </div>
-    </div>
-
-
-    <!-- brabd service info -->
-    <div class="p-c-c-60 vision">
-      <div class="row gap-12">
-        <div class="col vision">
-          <div class="font">
-            <p class="">#service 1</p>
-            <p class="p-t-1rem xxl b">professional look</p>
-            <p class="p-b-3rem">this is service information</p>
-          </div>
-          <div class="image-container">
-            <img src="/assets/content/set/white_c/set_white_c_1.webp">
-          </div>
+      <article class="grid-item">
+        <div class="image-wrapper">
+          <img
+            src="https://picsum.photos/400/600?random=2"
+            alt="Image 2"
+            class="popup-trigger"
+          />
         </div>
-        <div class="col vision">
-          <div class="image-container">
-            <img src="/assets/content/set/white_c/set_white_c_6.webp">
-          </div>
-          <div class="font">
-            <p class="p-t-3rem">#service 2</p>
-            <p class="p-t-1rem xxl b">design convert</p>
-            <p class="">this is service information</p>
-          </div>
+        <div class="text-content">
+          <h3>Title 2</h3>
+          <p>Short description.</p>
         </div>
+      </article>
+
+      <article class="grid-item">
+        <div class="image-wrapper">
+          <img
+            src="https://picsum.photos/400/600?random=3"
+            alt="Image 3"
+            class="popup-trigger"
+          />
+        </div>
+        <div class="text-content">
+          <h3>Title 3</h3>
+          <p>Another text block.</p>
+        </div>
+      </article>
+
+      <article class="grid-item">
+        <div class="image-wrapper">
+          <img
+            src="https://picsum.photos/400/600?random=4"
+            alt="Image 4"
+            class="popup-trigger"
+          />
+        </div>
+        <div class="text-content">
+          <h3>Title 4</h3>
+          <p>More content here.</p>
+        </div>
+      </article>
+    </main>
+
+    <footer class="grid-container footer-area">
+      <div class="footer-item">Left Footer Info</div>
+      <div class="footer-item">Right Footer Info</div>
+    </footer>
+
+    <dialog id="imageDialog">
+      <div class="dialog-content">
+        <button id="closeBtn" aria-label="Close">✕</button>
+        <img id="dialogImage" src="" alt="Popup Image" />
       </div>
+    </dialog>
 
-      <!-- brabd project info -->
-      <div class="p-c-c-60 vision">
-        <div class="row gap-12">
-          <div class="col">
-            <div class="col font p-b-3rem">
-              <p class="xl b">Personal branding</p>
-              <p class="m">
-                We create a personal brand that is easy to understand and use
-              </p>
-              <p>
-                C
-              </p>
-            </div>
-            <div class="col font p-b-3rem">
-              <p class="xl b">Professional shoot</p>
-              <p class="m">
-                We capture your brand's essence with precision and creativity
-              </p>
-              <p>
-                C
-              </p>
-            </div>
-          </div>
-          <div class="col">
-            <div class="col font p-b-3rem">
-              <p class="xl b">desigen flow</p>
-              <p class="m">
-                We create a design that is easy to understand and use
-              </p>
-              <p>
-                C
-              </p>
-            </div>
-            <div class="col font p-b-3rem">
-              <p class="xl b">set on market</p>
-              <p class="m">
-                we set your product on market
-              </p>
-              <p>
-                C
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- FAQ -->
-
-      <div class="p-c-c-60 vision">
-        <div class="font">
-          <p class="xl b center">
-            get started with hodo
-          </p>
-          <p class="center">
-            A to Z, we provide you with the best service
-          </p>
-          <p class="center">
-            btn
-          </p>
-        </div>
-      </div>
-
-      <!-- FAQ -->
-
-      <div class="p-c-c-60 vision col">
-        <div class="font">
-          <p class="xl b center">
-            ask anything, we are here for you
-          </p>
-          <p class="center">
-            for you, we are ready to answer
-          </p>
-        </div>
-        <div class="p-c-c-60">
-          <div class="font p-c-r-60 p-b-2rem">
-            <p class="l b">question</p>
-            <p>answer</p>
-          </div>
-          <div class="font p-c-r-60 p-b-2rem">
-            <p class="l b">question</p>
-            <p>answer</p>
-          </div>
-          <div class="font p-c-r-60 p-b-2rem">
-            <p class="l b">question</p>
-            <p>answer</p>
-          </div>
-          <div class="font p-c-r-60 p-b-2rem">
-            <p class="l b">question</p>
-            <p>answer</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- footer -->
-      <div class="p-c-c-60 vision">
-        <div class="row">
-          <div class="footer">
-            <div class="logo"></div>
-          </div>
-          <div class="font">
-            <p class="p-b-1rem">link #1</p>
-            <p class="p-b-1rem">link #2</p>
-            <p class="p-b-1rem">link #3</p>
-            <p class="p-b-1rem">link #4</p>
-            <p class="p-b-1rem">link #5</p>
-          </div>
-        </div>
-      </div>
-
-
-      <script src="script.js"></script>
-  </main>
-</body>
-
+    <script src="script.js"></script>
+  </body>
 </html>
