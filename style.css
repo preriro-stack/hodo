@@ -201,6 +201,5 @@ a {
   /* 3. 모바일에서 헤더 높이 조정 (선택 사항) */
   .sticky-header {
     height: 36px;
-    padding: 0 15px;
   }
 }
