@@ -61,7 +61,6 @@ body {
 /* 개별 그리드 아이템 (2:3 비율) */
 .grid-item {
   position: relative;
-  aspect-ratio: 3 / 5;
   flex-direction: column;
 }
 
@@ -175,6 +174,7 @@ dialog::backdrop {
   cursor: pointer;
   z-index: 1001;
   text-shadow: 0 2px 5px rgba(0, 0, 0, 0.8); /* 흰색 아이콘이 배경과 겹칠 때 잘 보이게 그림자 추가 */
+  outline: none;
 }
 
 a {
@@ -195,7 +195,7 @@ a {
   /* 2. 모바일에서 패딩 및 간격 최적화 (선택 사항) */
   .grid-container {
     padding-top: 70px; /* 헤더 높이 고려해 조금 더 여유 있게 */
-    gap: 30px; /* 세로로 쌓일 때 간격을 좀 더 넓게 */
+    gap: 4px;
   }
 
   /* 3. 모바일에서 헤더 높이 조정 (선택 사항) */
