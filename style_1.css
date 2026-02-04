@@ -21,7 +21,7 @@ body {
 }
 
 /* 1. Sticky Header (Overlay) */
-.header {
+.sticky-header {
   position: fixed;
   top: 0;
   left: 0;
@@ -58,46 +58,21 @@ body {
   margin: 0 auto;
 }
 
-.grid-container-mb-1fr {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 정확히 2열 */
-    gap: 4px; /* 아이템 간 간격 */
-    padding: 50px 20px 20px; /* Header 높이만큼 상단 패딩 확보 */
-    max-width: 1440px;
-    margin: 0 auto;
-  }
-
-/* --- 기본 그리드 아이템 (높이 3 / 기준) --- */
+/* 개별 그리드 아이템 (2:3 비율) */
 .grid-item {
-  width: 100%;
-  aspect-ratio: 2 / 3; /* 기본값 */
   position: relative;
+  flex-direction: column;
+}
+
+.grid-item-section {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  color: white;
   overflow: hidden;
-  /* 이미지 꽉 채우기 필수 */
-}
-.grid-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* 비율이 변해도 이미지가 잘리면서 꽉 차게 */
-}
 
-/* --- 버전 2: 높이 2 (중간, 정사각형) --- */
-.grid-item.h-2 {
-  aspect-ratio: 2 / 2; /* 1:1 */
-}
-
-/* --- 버전 1: 높이 1 (낮음, 가로로 긺) --- */
-.grid-item.h-1 {
-  aspect-ratio: 2 / 1;
-}
-
-/* --- 버전 3: 높이 0.5 (아주 얇음, 텍스트 배너 등) --- */
-.grid-item.h-05 {
-  aspect-ratio: 4 / 1; /* 2 / 0.5 */
-}
-
-.grid-item.h-052 {
-  aspect-ratio: 8 / 1; /* 2 / 0.5 */
+  /* 내부 정렬을 위한 Flex */
+  display: flex;
+  flex-direction: column;
 }
 
 .image-wrapper {
@@ -119,13 +94,15 @@ body {
   padding: 15px;
   display: flex;
   flex-direction: column;
+  justify-content: flex-end;
   color: white;
 }
 
-.rev {
+.text-content-section {
+  flex: 1; /* 텍스트 영역 비율 */
+  display: flex;
   flex-direction: column;
-  height: 100%;
-  justify-content: flex-end;
+  justify-content: flex-start;
 }
 
 /* 3. Footer Styling */
@@ -207,8 +184,12 @@ a {
 /* --- 반응형 미디어 쿼리 (CSS 파일 맨 아래 추가) --- */
 @media (max-width: 768px) {
   /* 1. 메인 및 푸터 그리드를 1열로 변경 */
-  .grid-container-mb-1fr {
+  .grid-container {
     grid-template-columns: 1fr; /* repeat(2, 1fr)에서 1fr로 변경 */
+  }
+
+  .grid-item-section {
+    aspect-ratio: 3 / 2;
   }
 
   /* 2. 모바일에서 패딩 및 간격 최적화 (선택 사항) */
@@ -220,23 +201,5 @@ a {
   /* 3. 모바일에서 헤더 높이 조정 (선택 사항) */
   .sticky-header {
     height: 36px;
-  }
-
-  .grid-item.h-2 {
-    aspect-ratio: 2 / 1; /* 1:1 */
-  }
-
-  /* --- 버전 1: 높이 1 (낮음, 가로로 긺) --- */
-  .grid-item.h-1 {
-    aspect-ratio: 4 / 1;
-  }
-
-  /* --- 버전 3: 높이 0.5 (아주 얇음, 텍스트 배너 등) --- */
-  .grid-item.h-05 {
-    aspect-ratio: 8 / 1; /* 2 / 0.5 */
-  }
-
-  .grid-item.h-052 {
-    aspect-ratio: 16 / 1; /* 2 / 0.5 */
   }
 }
