@@ -132,6 +132,8 @@ Spacing Utilities (패딩 & 마진 시스템)
 .m-6   { margin: var(--space-6); }
 .m-8   { margin: var(--space-8); }
 
+.mr-2   { margin-right: var(--space-2); }
+
 .mx-auto { margin-left: auto; margin-right: auto; }
 
 /* ── 그리드/플렉스용 gap 유틸리티 ── */
@@ -152,3 +154,12 @@ Spacing Utilities (패딩 & 마진 시스템)
 .my-4  { margin-top:    var(--space-4); margin-bottom: var(--space-4); }
 .my-6  { margin-top:    var(--space-6); margin-bottom: var(--space-6); }
 .my-8  { margin-top:    var(--space-8); margin-bottom: var(--space-8); }
+
+
+/* -- -- */
+.box-h-8 {
+    height: 8rem;
+  }
+
+@media (max-width: 640px) {
+  }
