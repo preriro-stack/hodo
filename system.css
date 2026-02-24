@@ -161,5 +161,14 @@ Spacing Utilities (패딩 & 마진 시스템)
     height: 8rem;
   }
 
-@media (max-width: 640px) {
+@media (max-width: 800px) {
+    .m-pt-4 {
+        padding-top: var(--space-4);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .mb-pt-4 {
+        padding-top: var(--space-4);
+    }
   }

@@ -48,7 +48,7 @@ window.addEventListener(
   "scroll",
   () => {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    const header = document.getElementById("main-header");
+    const header = document.getElementById("header");
 
     if (!header) return; // 헤더가 없으면 무시
 
