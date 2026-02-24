@@ -154,21 +154,3 @@ Spacing Utilities (패딩 & 마진 시스템)
 .my-4  { margin-top:    var(--space-4); margin-bottom: var(--space-4); }
 .my-6  { margin-top:    var(--space-6); margin-bottom: var(--space-6); }
 .my-8  { margin-top:    var(--space-8); margin-bottom: var(--space-8); }
-
-
-/* -- -- */
-.box-h-8 {
-    height: 8rem;
-  }
-
-@media (max-width: 800px) {
-    .m-pt-4 {
-        padding-top: var(--space-4);
-    }
-  }
-
-  @media (max-width: 480px) {
-    .mb-pt-4 {
-        padding-top: var(--space-4);
-    }
-  }

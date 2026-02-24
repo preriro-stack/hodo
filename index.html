@@ -14,13 +14,14 @@
 
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="system.css" />
-    <link rel="stylesheet" href="back.css" />
   </head>
 
   <body>
-    <!-- header (pc) -->
-    <header class="header-pc" id="header">
-      <div class="header-wrapper n-640 py-4">
+    <!-- header -->
+
+    <header class="header" id="header">
+      <!-- h-pc-->
+      <div class="header-wrapper n-800 py-4">
         <div class="px-4">
           <a href="/">
             <img
@@ -36,7 +37,8 @@
         </div>
       </div>
 
-      <div class="header-wrapper-mob on-640 pt-2 pb-2">
+      <!-- h-mob-->
+      <div class="header-wrapper on-800 pt-2 pb-2">
         <div class="pl-3 pr-2">
           <a href="/">
             <img
@@ -55,11 +57,10 @@
 
     <main>
       <div class="container">
-
         <!-- 1. 메인 이미지 -->
 
-        <section class="section px-2 pb-8">
-          <div class="grid-item full-width">
+        <section class="px-2 pb-8">
+          <div class="full-width">
             <div class="no-overlay-thumb">
               <img
                 src="img/CNF_0461_compressed.jpg"
@@ -72,15 +73,15 @@
 
         <!-- 2. 서비스 섹션 -->
 
-        <section class="section px-2">
+        <section class="px-2">
           <div class="grid-service">
             <div class="pb-4">
-              <h3 class="u pb-2">서비스</h3>
+              <h3 class="under-line pb-2">서비스</h3>
             </div>
           </div>
 
           <div class="grid-service">
-            <div class="grid-item">
+            <div>
               <p class="pb-1">프로필 촬영</p>
               <div class="box-h-8">
                 <p class="mr-2">
@@ -93,7 +94,7 @@
               </div>
             </div>
 
-            <div class="grid-item">
+            <div>
               <p class="pb-1 mb-pt-4">브랜드</p>
               <div class="box-h-8">
                 <p class="mr-2">
@@ -106,7 +107,7 @@
               </div>
             </div>
 
-            <div class="grid-item">
+            <div>
               <p class="pb-1 m-pt-4">커스텀 프로젝트</p>
               <div class="box-h-8">
                 <p class="mr-2">
@@ -126,8 +127,9 @@
           <div class="grid-gallery px-2 pt-8">
             <div class="a-c">
               <div>
-              <p class="a-c mr-2">photo by</p><img src="LOGO_small_black.svg" class="logo mr-2 m-1">
-            </div>
+                <p class="a-c mr-2">photo by</p>
+                <img src="LOGO_small_black.svg" class="logo mr-2 m-1" />
+              </div>
             </div>
             <div>
               <div class="thumb">
@@ -165,14 +167,6 @@
         <p>05805, 서울 송파구 동남로4길 16-1 2층</p>
       </div>
     </footer>
-
-    <div class="ambient-background none">
-      <div class="blob"></div>
-      <div class="blob"></div>
-      <div class="blob"></div>
-      <div class="grain-overlay"></div>
-    </div>
-
     <script src="script.js"></script>
   </body>
 </html>
