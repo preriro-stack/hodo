@@ -1,9 +1,4 @@
 /* ==== back blur ==== */
-
-.none {
-    display: none;
-}
-
 .ambient-background {
     position: fixed;
     top: 0;
