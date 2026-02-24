@@ -1,130 +1,171 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Landing Page - Vanilla</title>
+    <title>Hodo Studio - 포토 스튜디오</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap"
       rel="stylesheet"
     />
+
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="system.css" />
+    <link rel="stylesheet" href="back.css" />
   </head>
 
   <body>
-    <header class="header">
-      <a href="#" class="logo">
-        <img src="/LOGO_upper_white.svg" alt="메인 로고" />
-      </a>
+    <header class="header-pc n-640 ds" id="main-header">
+      <div class="header-wrapper py-4">
+        <div class="px-4">
+          <a href="/">
+            <img
+              src="/LOGO_small_black.svg"
+              alt="Hodo Studio"
+              class="logo"
+              loading="lazy"
+            />
+          </a>
+        </div>
+        <div class="px-4 pt-1">
+          <p>소란스러운 수식보다<br />대상이 가진 고유한 온도를 믿습니다.</p>
+        </div>
+      </div>
+    </header>
+
+    <header class="header-mob on-640">
+      <div class="header-wrapper-mob py-4">
+        <div class="px-2">
+          <a href="/">
+            <img
+              src="/LOGO_small_black.svg"
+              alt="Hodo Studio"
+              class="logo"
+              loading="lazy"
+            />
+          </a>
+        </div>
+        <div>
+          <p>소란스러운 수식보다<br />대상이 가진 고유한 온도를 믿습니다.</p>
+        </div>
+      </div>
     </header>
 
     <main>
-        <div class="grid-container">
-      <article class="grid-item h-1">
-        <div class="text-content">
-            <p>소란스러운 수식보다<br />대상이 가진 고유한 온도를 믿습니다.</p>
-        </div>
-      </article>
+      <div class="container">
+        <!-- 1. 메인 이미지 -->
 
-      <article class="grid-item h-1">
-        <div class="text-content vision">
-        </div>
-      </article>
+        <section class="section px-2 pb-8">
+          <div class="grid-item full-width">
+            <div class="no-overlay-thumb">
+              <img
+                src="https://placehold.co/2160x3240"
+                alt="Full width 이미지"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </section>
 
-      <article class="grid-item h-1">
-        <div class="text-content">
-          <p>a . Portrait -></p>
-        </div>
-      </article>
+        <!-- 2. 서비스 섹션 -->
+        <section class="section px-2 pb-8">
+          <div class="grid-3fr">
+            <h3 class="pb-2 u">서비스</h3>
+          </div>
+          <div class="grid-3fr pt-4">
+            <div class="grid-item">
+              <p class="pb-1">프로필 촬영</p>
+              <p>
+                아이들의 모습을 기록합니다.<br />
+                따뜻한 빛 아래에서 아이 본연의 미소를 담아냅니다.
+              </p>
+              <div class="no-overlay-thumb pt-8">
+                <img src="https://placehold.co/2160x3240" />
+              </div>
+            </div>
+            <div class="grid-item">
+              <p class="pb-1">브랜드</p>
+              <p>
+                브랜드의 이야기를 시각화합니다.<br />
+                브랜드의 이야기로 시작되는 새로운 가능성을 함께 열어냅니다.
+              </p>
+              <div class="no-overlay-thumb pt-8">
+                <img src="https://placehold.co/2160x3240" />
+              </div>
+            </div>
+            <div class="grid-item">
+              <p class="pb-1">커스텀 프로젝트</p>
+              <p>
+                특별한 아이디어를 함께 실현합니다.<br />
+                호도의 공간에서 당신의 이야기를 전해주세요
+              </p>
+              <div class="no-overlay-thumb pt-8">
+                <img src="https://placehold.co/2160x3240" />
+              </div>
+            </div>
+          </div>
+        </section>
 
-      <article class="grid-item h-1">
-        <div class="text-content">
-          <p>1 ) rofile Shooting</p>
-          <p>2 ) Lookbook Shooting</p>
-        </div>
-      </article>
+        <!-- 3. gallery -->
+        <section class="section">
+          <div class="grid-2fr px-2">
+            <div></div>
+            <div>
+              <div class="thumb pt-8">
+                <img src="https://placehold.co/2160x3240" />
+              </div>
+            </div>
+          </div>
+        </section>
 
-      <article class="grid-item h-1">
-        <div class="text-content">
-          <p>b . Product & Still -></p>
-        </div>
-      </article>
+        <section class="sectio pt-1">
+          <div class="grid-2fr px-2">
+            <div>
+              <div class="thumb">
+                <img src="https://placehold.co/2160x3240" />
+              </div>
+            </div>
+            <div>
+              <div class="thumb">
+                <img src="https://placehold.co/2160x3240" />
+              </div>
+            </div>
+          </div>
+        </section>
 
-      <article class="grid-item h-1">
-        <div class="text-content">
-          <p>1 ) Commercial</p>
-          <p>2 ) Close-up / Macro</p>
-        </div>
-      </article>
-
-      <article class="grid-item h-05"></article>
-
-      <article class="grid-item h-05">
-        <div class="text-content">
-          <p><i>On-site / Location</i></p>
-          <p><i>Retouching / Post-processing</i></p>
-        </div>
-      </article>
-    </div>
-    
-      <div class="grid-container-mb-1fr">
-      <article class="grid-item">
-        <div class="image-wrapper">
-          <img src="temp.webp" alt="Image 3" class="popup-trigger" />
-        </div>
-      </article>
-
-      <article class="grid-item">
-        <div class="image-wrapper">
-          <img src="temp.webp" alt="Image 4" class="popup-trigger" />
-        </div>
-      </article>
-
-      <article class="grid-item">
-        <div class="image-wrapper">
-          <img src="temp.webp" alt="Image 3" class="popup-trigger" />
-        </div>
-      </article>
-
-      <article class="grid-item">
-        <div class="image-wrapper">
-          <img src="temp.webp" alt="Image 4" class="popup-trigger" />
-        </div>
-      </article>
-
-      <article class="grid-item">
-        <div class="image-wrapper">
-          <img src="temp.webp" alt="Image 4" class="popup-trigger" />
-        </div>
-      </article>
-    </div>
-    </main>
-
-    <footer class="grid-container footer-area">
-      <div class="footer-item">
-        <img src="/LOGO_upper_white.svg" alt="메인 로고" />
+        <section class="sectio pt-1">
+          <div class="grid-2fr px-2">
+            <div>
+              <div class="thumb">
+                <img src="https://placehold.co/2160x3240" />
+              </div>
+            </div>
+            <div></div>
+          </div>
+        </section>
       </div>
-      <div class="footer-item">
-        <p>Copyright 2026 HODO studio. All rights reserved.</p>
-        <p>Contact: info@hodo.studio</p>
-        <p><br /></p>
-        <p>서울특별시 중랑구 묵1동 122-180, 402호</p>
-        <p>
-          <a href="">Facebook</a>, <a href="">Instagram</a>,
-          <a href="">Twitter</a>
-        </p>
+    </main>
+    <footer class="px-2 pt-8 pb-4">
+      <div>
+        <img src="LOGO_small_black.svg" />
+      </div>
+      <div class="pt-2">
+        <p>hodo studio, 호도 스튜디오 <br />general@hodostudio.com</p>
+      </div>
+      <div class="pt-1">
+        <p>05805, 서울 송파구 동남로4길 16-1 2층</p>
       </div>
     </footer>
 
-    <dialog id="imageDialog">
-      <div class="dialog-content">
-        <button id="closeBtn" aria-label="Close">✕</button>
-        <img id="dialogImage" src="" alt="Popup Image" />
-      </div>
-    </dialog>
+    <div class="ambient-background none">
+      <div class="blob"></div>
+      <div class="blob"></div>
+      <div class="blob"></div>
+      <div class="grain-overlay"></div>
+    </div>
 
     <script src="script.js"></script>
   </body>

@@ -1,242 +1,264 @@
-/* 기본 초기화 및 폰트 적용 */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-size: 14px;
-  font-weight: 50;
+}
+
+html {
+  font-size: 62.5%; /* 1rem = 10px */
 }
 
 body {
-  /* Inter를 먼저 써서 영문을 처리하고, 한글은 Noto Sans KR이 처리하게 합니다 */
-  font-family: "Inter", "Noto Sans KR", sans-serif;
-  line-height: 1.2;
-  letter-spacing: -0.05rem;
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 1.2rem; /* ← 변경 */
+  line-height: 1.2; /* ← 변경 */
   color: #000;
-  background-color: #000;
+  letter-spacing: -0.07em;
+  background-color: #fff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-.vision * {
-  outline: 1px dashed rgba(30, 144, 255, 0.5); /* 하위 요소는 파란 점선 */
+
+
+
+/* ==== - ==== */
+
+.vision {
+  outline: 1px dashed #4fc3f7;
+  outline-offset: -1px;
 }
 
-/* 1. Sticky Header (Overlay) */
-.header {
+.none {
+  display: none;
+}
+
+/* ==== hedaer ==== */
+.header-pc {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 36px;
-  display: flex;
-  align-items: center;
-  padding: 16px 20px;
   z-index: 100;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(8px);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
 }
 
-/* 로고 영역 컨테이너 */
-.logo {
-  display: flex; /* 이미지를 수직 중앙 정렬하기 위해 flex 사용 */
-  align-items: center;
-  height: 100%; /* 부모(헤더) 높이를 상속 */
-  text-decoration: none; /* a태그 밑줄 제거 */
+.header-pc.hidden {
+  opacity: 0;
+  background: rgba(255, 255, 255, 0);
+  backdrop-filter: blur(0);
 }
 
-/* 실제 로고 이미지 스타일 */
-.logo img {
-  height: 20px; /* 요청하신 대로 세로 30px 고정 */
-  width: auto; /* 비율 유지를 위해 가로는 자동 조절 */
-  display: block; /* 이미지 하단 미세한 공백 제거 */
-}
-
-/* 2. Main Grid Layout */
-.grid-container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 정확히 2열 */
-  gap: 4px; /* 아이템 간 간격 */
-  padding: 50px 20px 20px; /* Header 높이만큼 상단 패딩 확보 */
-  max-width: 1440px;
-  margin: 0 auto;
-}
-
-.grid-container-mb-1fr {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 정확히 2열 */
-    gap: 4px; /* 아이템 간 간격 */
-    padding: 50px 20px 20px; /* Header 높이만큼 상단 패딩 확보 */
-    max-width: 1440px;
-    margin: 0 auto;
+@container scroll-state(scroll-down) {
+  .header-pc {
+    transform: translateY(-100%);
   }
+}
 
-/* --- 기본 그리드 아이템 (높이 3 / 기준) --- */
-.grid-item {
-  width: 100%;
-  aspect-ratio: 2 / 3; /* 기본값 */
+@container scroll-state(scroll-up) {
+  .header-pc {
+    transform: translateY(0);
+  }
+}
+
+.header-wrapper {
+  background-color: white;
+  max-width: 1440px;
+}
+
+.header-mob {
   position: relative;
-  overflow: hidden;
-  /* 이미지 꽉 채우기 필수 */
 }
-.grid-item img {
+
+.header-wrapper-mob {
+  background-color: white;
+  max-width: 1440px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+/* ==== logo ==== */
+
+.logo-link {
+  text-decoration: none;
+}
+
+.logo {
+  display: block;
+  max-height: 20px;
+}
+
+/* ==== - ==== */
+
+.container {
   width: 100%;
-  height: 100%;
-  object-fit: cover; /* 비율이 변해도 이미지가 잘리면서 꽉 차게 */
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-/* --- 버전 2: 높이 2 (중간, 정사각형) --- */
-.grid-item.h-2 {
-  aspect-ratio: 2 / 2; /* 1:1 */
+/* ==== grid ==== */
+
+.grid-2fr{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
 }
 
-/* --- 버전 1: 높이 1 (낮음, 가로로 긺) --- */
-.grid-item.h-1 {
-  aspect-ratio: 2 / 1;
+.grid-3fr{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
 }
 
-/* --- 버전 3: 높이 0.5 (아주 얇음, 텍스트 배너 등) --- */
-.grid-item.h-05 {
-  aspect-ratio: 4 / 1; /* 2 / 0.5 */
-}
-
-.grid-item.h-052 {
-  aspect-ratio: 8 / 1; /* 2 / 0.5 */
-}
-
-.image-wrapper {
-  cursor: pointer;
-}
-
-.image-wrapper img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* 비율에 맞춰 꽉 채우기 */
-  transition: transform 0.3s;
-}
-.image-wrapper img:hover {
-  transform: scale(1.01);
-}
-
-.text-content {
-  position: absolute;
-  padding: 15px;
+.grid-item.with-text-image {
   display: flex;
   flex-direction: column;
-  color: white;
 }
 
-.rev {
-  flex-direction: column;
+.grid-item.full-width {
+  grid-column: 1 / -1;
+  max-height: 1000px;
+  overflow: hidden;
+}
+
+/* ==== grid-img ==== */
+
+.no-overlay-thumb {
+  aspect-ratio: 2 / 3;
+  overflow: hidden;
+}
+
+.thumb {
+  aspect-ratio: 2 / 3;
+  overflow: hidden;
+}
+
+.thumb img {
+  width: 100%;
   height: 100%;
-  justify-content: flex-end;
-}
-
-/* 3. Footer Styling */
-.footer-area {
-  padding-top: 120px;
-  margin-top: 40px;
-  color: white;
-  height: 300px;
-}
-
-.footer-item img {
-  height: 16px;
-}
-
-/* --- Dialog (Popup) 수정된 최종 코드 --- */
-dialog {
-  /* 1. 중앙 정렬 핵심 코드 */
-  position: fixed;
-  inset: 0; /* top, right, bottom, left 모두 0으로 설정 */
-  margin: auto; /* 상하좌우 여백을 자동으로 계산해 중앙 배치 */
-  z-index: 1000; /* 다른 요소보다 확실히 위에 오도록 */
-
-  /* 2. 스타일 및 크기 설정 */
-  border: none;
-  background: transparent; /* 배경 투명 */
-  padding: 0;
-  width: fit-content; /* 콘텐츠(이미지) 크기에 딱 맞게 */
-  height: fit-content; /* 콘텐츠 크기에 딱 맞게 */
-  max-width: 90vw; /* 화면 꽉 차지 않게 여백 둠 */
-  max-height: 90vh;
-
-  overflow: visible; /* 닫기 버튼이 밖으로 나가도 잘리지 않게 함 */
-}
-
-/* 팝업 뒷배경 */
-dialog::backdrop {
-  background: rgba(0, 0, 0, 0.85);
-  backdrop-filter: blur(3px);
-}
-
-/* 내용물 컨테이너 */
-.dialog-content {
-  position: relative;
-  display: flex; /* 이미지를 감싸는 방식을 flex로 변경하여 빈틈 제거 */
-  justify-content: center;
-  align-items: center;
-}
-
-/* 이미지 스타일 */
-.dialog-content img {
+  object-fit: cover;
   display: block;
-  max-width: 90vw; /* dialog의 max값과 동일하게 맞춤 */
-  max-height: 90vh; /* dialog의 max값과 동일하게 맞춤 */
-  width: auto; /* 비율 유지 */
-  height: auto; /* 비율 유지 */
+}
+
+.no-overlay-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ==== img-overlay ==== */
+
+#overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+}
+
+#overlay.active {
+  display: flex;
+}
+
+#overlay img {
+  max-width: 94vw;
+  max-height: 94vh;
   object-fit: contain;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
 }
 
-/* 닫기 버튼 */
-#closeBtn {
+#close {
   position: absolute;
-  top: -40px; /* 이미지 위쪽 바깥으로 */
-  right: 0; /* 이미지 오른쪽 라인에 맞춤 */
-  background: transparent;
-  color: white;
-  border: none;
-  font-size: 30px;
+  top: 20px;
+  right: 20px;
+  color: #fff;
+  font-size: 4.8rem;
+  font-weight: 300;
   cursor: pointer;
-  z-index: 1001;
-  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.8); /* 흰색 아이콘이 배경과 겹칠 때 잘 보이게 그림자 추가 */
-  outline: none;
+  line-height: 1;
 }
 
-a {
-  color: white;
+footer {
+  background-color: white;
+  max-width: 1440px;
 }
 
-/* --- 반응형 미디어 쿼리 (CSS 파일 맨 아래 추가) --- */
-@media (max-width: 768px) {
-  /* 1. 메인 및 푸터 그리드를 1열로 변경 */
-  .grid-container-mb-1fr {
-    grid-template-columns: 1fr; /* repeat(2, 1fr)에서 1fr로 변경 */
+footer img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ==== h-p styles ==== */
+h2 {
+  font-size: 2.6rem;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+p {
+  font-size: 1.2rem;
+}
+
+.on-640 {
+  display: none;
+}
+
+.u {
+  border-bottom: #000 solid 1px;
+}
+
+/* ==== - ==== */
+
+@media (max-width: 640px) {
+  h2 {
+    font-size: 2.2rem;
+    margin-bottom: 1.6rem;
   }
 
-  /* 2. 모바일에서 패딩 및 간격 최적화 (선택 사항) */
-  .grid-container {
-    padding-top: 70px; /* 헤더 높이 고려해 조금 더 여유 있게 */
-    gap: 4px;
+  h3 {
+    font-size: 1.6rem;
   }
 
-  /* 3. 모바일에서 헤더 높이 조정 (선택 사항) */
-  .sticky-header {
-    height: 36px;
+  p {
+    font-size: 1.2rem;
   }
 
-  .grid-item.h-2 {
-    aspect-ratio: 2 / 1; /* 1:1 */
+  .n-640 {
+    display: none;
   }
 
-  /* --- 버전 1: 높이 1 (낮음, 가로로 긺) --- */
-  .grid-item.h-1 {
-    aspect-ratio: 4 / 1;
+  .on-640 {
+    display: block;
   }
 
-  /* --- 버전 3: 높이 0.5 (아주 얇음, 텍스트 배너 등) --- */
-  .grid-item.h-05 {
-    aspect-ratio: 8 / 1; /* 2 / 0.5 */
+  .grid-2fr {
+    grid-template-columns: 1fr;
   }
 
-  .grid-item.h-052 {
-    aspect-ratio: 16 / 1; /* 2 / 0.5 */
+  .grid-3fr {
+    grid-template-columns: 1fr;
+  }
+
+  .m-pb-4 {
+    padding-bottom: 4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    max-width: 140px;
+  }
+
+  .n-480 {
+    display: none;
   }
 }
