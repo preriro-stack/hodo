@@ -80,6 +80,13 @@ body {
   gap: 1rem;
 }
 
+.grid-thumb-gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 1rem;
+}
+
+
 .grid-service {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -219,6 +226,10 @@ p {
     font-size: 1.2rem;
   }
 
+  .header {
+    position: relative;
+  }
+
   .n-800 {
     display: none;
   }
@@ -235,6 +246,12 @@ p {
 
   .grid-gallery {
     grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .grid-thumb-gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 1rem;
   }
 
@@ -271,6 +288,13 @@ p {
     grid-template-columns: 1fr;
     gap: 1rem;
   }
+
+  .grid-thumb-gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+  }
+
 
   .mb-pt-4 {
     padding-top: 4rem;
