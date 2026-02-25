@@ -19,6 +19,19 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+
+.bg-fixed {
+  position: fixed;
+  inset: 0;
+  z-index: -1; /* 콘텐츠 뒤로 보냄 */
+  background-image: url('LOGO_small_black.svg');
+  background-repeat: no-repeat;
+  background-position: 50% 95%;
+  background-size: 100%;
+  transition: opacity 0.5s ease; /* 페이드 아웃 애니메이션 */
+}
+
+
 /* ==== - ==== */
 
 .vision {
